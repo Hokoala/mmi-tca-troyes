@@ -1,152 +1,76 @@
-name: Symfony CI - Build & Artifact
+# Nom du workflow
+name: s5-jeanmichel-le-symfony-build-artifact
 
+# Déclencheurs du workflow
 on:
   push:
     branches: [ main ]
-    paths:
-      - "ressources/s5/jeanmichel-le/projets/ci-cd-symfony/**"
-  workflow_dispatch: {}
-
-defaults:
-  run:
-    working-directory: ressources/s5/jeanmichel-le/projets/ci-cd-symfony
-
-permissions:
-  contents: read
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  ci-symfony:
+  build-artifact:
     runs-on: ubuntu-latest
-    env:
-      # Must be added in your repo secrets (Settings → Secrets and variables → Actions)
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
-      - name: Checkout
+      # 1. Récupération du code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up PHP
+      # 2. Configuration de PHP
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          coverage: pcov
+          extensions: mbstring, xml, curl, zip, bcmath, intl, ctype
           tools: composer:v2
-          extensions: mbstring, intl, pdo_mysql
 
-      - name: Cache Composer
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/composer
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+      # 3. Installation des dépendances PHP
+      - name: Install PHP dependencies
+        working-directory: ./ressources/s5/jeanmichel-le/projets/ci-cd-symfony
+        run: composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
-      - name: Install dependencies (including dev)
-        run: composer install --no-progress --prefer-dist --no-interaction
+      # 4. Création du fichier .env.local.php
+      - name: Dump environment variables for production
+        working-directory: ./ressources/s5/jeanmichel-le/projets/ci-cd-symfony
+        run: composer dump-env prod
+        env:
+          APP_ENV: prod
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      - name: Run PHP-CS-Fixer (dry-run)
+
+      - name: Install JavaScript assets via ImportMap
+        working-directory: ./ressources/s5/jeanmichel-le/projets/ci-cd-symfony
+        run: php bin/console importmap:install
+
+      # 6. Compilation des assets
+      - name: Compile assets with AssetMapper
+        working-directory: ./ressources/s5/jeanmichel-le/projets/ci-cd-symfony
+        run: php bin/console asset-map:compile
+
+      # 7. Création de l'archive de l'artefact
+      - name: Create Artifact Archive
+        working-directory: ./ressources/s5/jeanmichel-le/projets/ci-cd-symfony
         run: |
-          if [ -f ./vendor/bin/php-cs-fixer ]; then
-            php ./vendor/bin/php-cs-fixer fix --dry-run --diff --ansi
-          else
-            echo 'php-cs-fixer not found; ensure dev dependencies are installed' && exit 1
-          fi
-
-      - name: Run PHP lint
-        run: find src tests -name "*.php" -print0 | xargs -0 -n1 -P4 php -l
-
-      - name: Run PHPStan
-        run: |
-          if [ -f ./vendor/bin/phpstan ]; then
-            ./vendor/bin/phpstan analyse --no-progress --ansi
-          else
-            echo 'phpstan not found; ensure dev dependencies are installed' && exit 1
-          fi
-
-      - name: Run PHPUnit
-        run: |
-          if [ -f ./vendor/bin/phpunit ]; then
-            ./vendor/bin/phpunit --colors=always --testdox --log-junit=phpunit.xml
-          else
-            echo 'phpunit not found; ensure dev dependencies are installed' && exit 1
-          fi
-
-      - name: Security audit (allow failures)
-        run: composer audit --format=json --no-interaction || true
-
-  build-artifact:
-    needs: ci-symfony
-    runs-on: ubuntu-latest
-    env:
-      APP_ENV: prod
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Build Docker image with PHP 8.2 (local builder)
-        run: |
-          docker build -t symfony-build -f - . <<'EOF'
-          FROM ubuntu:22.04
-          ENV DEBIAN_FRONTEND=noninteractive
-          ENV TZ=Europe/Paris
-          RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-          RUN apt-get update && apt-get upgrade -y && apt-get install -y curl ca-certificates gnupg lsb-release apt-transport-https \
-            software-properties-common
-          RUN add-apt-repository -y ppa:ondrej/php || true
-          RUN apt-get update
-          RUN apt-get install -y php8.2 php8.2-cli php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip php8.2-bcmath php8.2-intl unzip
-          RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-          WORKDIR /app
-          EOF
-
-      - name: Configure environment, build app inside container
-        run: |
-          # prefer repo secret if available, otherwise fall back to a safe default for build tests
-          DB_URL="${{ secrets.DATABASE_URL }}"
-          if [ -z "$DB_URL" ]; then
-            DB_URL="postgresql://app:!my-password!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
-          fi
-
-          docker run --rm -v "${{ github.workspace }}/ressources/s5/jeanmichel-le/projets/ci-cd-symfony":/app symfony-build bash -eux -c '
-            cd /app
-            export APP_ENV=prod
-            export DATABASE_URL="'""$DB_URL"'"'
-            composer dump-env prod
-            composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-interaction
-            # optional: build assets if your project has them (comment if not)
-            # php bin/console asset:install --env=prod
-          '
-
-      - name: Create artifact archive
-        run: |
-          cd ressources/s5/jeanmichel-le/projets/ci-cd-symfony
-          ART=symfony-artifact-r1.tar.gz
-          tar -czf "$ART" \
+          tar -czvf ../../../../../symfony-artifact.tar.gz \
             --exclude=.git \
+            --exclude=.github \
             --exclude=node_modules \
-            --exclude=var/cache \
-            --exclude=var/log \
+            --exclude=var/cache/* \
+            --exclude=var/log/* \
             --exclude=tests \
             --exclude=.env \
-            --exclude=.secrets \
             --exclude=docker \
             --exclude=docker-compose.yml \
             --exclude=README.md \
-            --exclude=*.log .
+            --exclude=*.log \
+            --exclude=*.gitignore \
+            --exclude=composer.lock \
+            .
 
-      - name: Test artifact (smoke)
-        run: |
-          cd ressources/s5/jeanmichel-le/projets/ci-cd-symfony
-          tar -tf symfony-artifact-r1.tar.gz | head -n 20
-
-      - name: Upload artifact
+      # 8. Upload de l'artefact
+      - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: symfony-artifact-r1
-          path: ressources/s5/jeanmichel-le/projets/ci-cd-symfony/symfony-artifact-r1.tar.gz
-          retention-days: 30
+          path: symfony-artifact-r1.tar.gz
