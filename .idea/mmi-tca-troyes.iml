@@ -11,7 +11,6 @@
       <sourceFolder url="file://$MODULE_DIR$/ressources/s5/thomas-ca/projets/ci-cd-symfony/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/ressources/s5/thomas-ca/tps/ci-cd-symfony/repository/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ressources/s5/thomas-ca/tps/ci-cd-symfony/repository/tests" isTestSource="true" packagePrefix="App\Tests\" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/clue/ndjson-react" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/doctrine/collections" />
@@ -28,70 +27,28 @@
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/doctrine/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/egulias/email-validator" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/evenement/evenement" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/fidry/cpu-core-counter" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/friendsofphp/php-cs-fixer" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/masterminds/html5" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/monolog/monolog" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/myclabs/deep-copy" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/nikic/php-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phar-io/manifest" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpstan/phpdoc-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpstan/phpstan" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/php-code-coverage" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/php-file-iterator" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/php-invoker" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/php-text-template" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/php-timer" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/clock" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/link" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/cache" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/child-process" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/dns" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/event-loop" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/promise" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/socket" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/react/stream" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/cli-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/code-unit" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/code-unit-reverse-lookup" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/comparator" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/complexity" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/diff" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/environment" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/exporter" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/global-state" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/lines-of-code" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/object-enumerator" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/object-reflector" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/recursion-context" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/resource-operations" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/type" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/asset-mapper" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/cache" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/cache-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/clock" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/config" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/console" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/css-selector" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/debug-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/dependency-injection" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/doctrine-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/doctrine-messenger" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/dom-crawler" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/dotenv" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/event-dispatcher" />
@@ -108,7 +65,6 @@
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/intl" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/mailer" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/maker-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/messenger" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/monolog-bridge" />
@@ -116,7 +72,6 @@
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/notifier" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/password-hasher" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/phpunit-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/polyfill-intl-icu" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/polyfill-intl-idn" />
@@ -147,9 +102,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/web-link" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/web-profiler-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/symfony/yaml" />
-      <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/vendor/webmozart/assert" />
@@ -196,6 +149,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/asset-mapper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -3,6 +3,7 @@
         "friendsofphp/php-cs-fixer": "^3"
     },
     "require": {
-        "symfony/stimulus-bundle": "^2.30"
+        "symfony/stimulus-bundle": "^2.30",
+        "symfony/asset-mapper": "^7.3"
     }
 }
