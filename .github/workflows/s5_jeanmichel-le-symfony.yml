@@ -58,6 +58,13 @@ jobs:
           docker build -t symfony-build -f - . <<EOF
           FROM ubuntu:22.04
           
+          # Éviter les prompts interactifs
+          ENV DEBIAN_FRONTEND=noninteractive
+          ENV TZ=Europe/Paris
+          
+          # Configuration de la timezone
+          RUN ln -snf /usr/share/zoneinfo/\$TZ /etc/localtime && echo \$TZ > /etc/timezone
+          
           # Mettre à jour les dépôts
           RUN apt update && apt upgrade -y
           
@@ -137,7 +144,3 @@ jobs:
           name: symfony-artifact-r1
           path: ressources/s5/jeanmichel-le/projets/ci-cd-symfony/symfony-artifact-r1.tar.gz
           retention-days: 30
-
-
-
-
