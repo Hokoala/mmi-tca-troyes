@@ -22,3 +22,5 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+/ressources/s5/jeanmichel-le/projets/distil-bert
