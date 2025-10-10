@@ -3,8 +3,8 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
-        <option value="$PROJECT_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/tests" />
         <option value="$PROJECT_DIR$/ressources/s5/thomas-ca/tps/ci-cd-symfony/repository/tests" />
+        <option value="$PROJECT_DIR$/ressources/s5/jeanmichel-le/projets/ci-cd-symfony/tests" />
         <option value="$PROJECT_DIR$/ressources/s5/thomas-ca/projets/ci-cd-symfony/tests" />
       </list>
     </option>
