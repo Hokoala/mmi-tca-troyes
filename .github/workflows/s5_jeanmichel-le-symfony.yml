@@ -86,6 +86,9 @@ jobs:
         with:
           name: symfony-artifact-r1
 
+
+
+
       # 2. Configuration de la clé SSH
       - name: Setup SSH key
         run: |
@@ -96,6 +99,10 @@ jobs:
           ssh-add ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
+          - name: Debug: print environment (safe)
+            run: |
+              echo "SSH_HOST length: ${#{{ secrets.SSH_HOST }}}"
+              echo "SSH_USER length: ${#{{ secrets.SSH_USER }}}"
       # 3. Test de la connexion SSH (facultatif mais utile pour debug)
       - name: Test SSH connection
         run: ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo ✅ Connexion SSH réussie"
