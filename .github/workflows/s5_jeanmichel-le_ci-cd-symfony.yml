@@ -50,10 +50,17 @@ jobs:
       - name: Install Node dependencies
         run: npm install
 
+      - name: Configure Symfony environment
+        run: |
+          echo "APP_ENV=test" > .env.local
+          php bin/console cache:clear --env=test
+          php bin/console cache:warmup --env=test
+
       - name: Start Symfony server
         run: |
-          php -S 127.0.0.1:8080 -t public &
-          sleep 3
+          php -S 127.0.0.1:8080 -t public > /dev/null 2>&1 &
+          sleep 5
+          curl --retry 10 --retry-delay 1 --retry-connrefused http://127.0.0.1:8080/welcome || true
 
       - name: Run Cypress tests
         run: npx cypress run
