@@ -120,3 +120,15 @@ jobs:
             php bin/console cache:warmup --env=prod
             sudo systemctl restart apache2
           EOF
+
+        # Créer le répertoire pour les certificats
+      - name: Generate Docker Swarm TLS Certificates
+        run: |
+         mkdir -p ~/docker-certs && cd ~/docker-certs
+            
+           # 1. Générer la clé privée de l'Autorité de Certification (CA)
+            openssl genpkey -algorithm RSA -out ca-key.pem
+            
+            # 2. Générer le certificat de l'Autorité de Certification (auto-signé)
+            openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem \
+              -subj "/CN=Docker Swarm CA"

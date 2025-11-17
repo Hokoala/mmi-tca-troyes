@@ -1,0 +1,35 @@
+# Dockerfile-php
+FROM php:8.2-fpm
+
+# Installation des dépendances système et extensions PHP nécessaires
+RUN apt-get update && apt-get install -y \
+      libonig-dev \
+      libpq-dev \
+      libicu-dev \
+      unzip \
+    && docker-php-ext-install pdo pdo_mysql intl
+
+# Positionnement dans le répertoire de l'application
+WORKDIR /var/www/symfony
+
+# Copie des fichiers essentiels (configuration, sources, etc.)
+COPY composer.json composer.lock ./
+COPY config/ config/
+COPY src/ src/
+COPY bin/ bin/
+COPY .env ./
+
+RUN mkdir public
+
+ARG APP_ENV="prod"
+ARG DATABASE_URL="postgresql://symfony:!root!@symfony_db:5432/app?serverVersion=16&charset=utf8"
+
+RUN echo "APP_ENV=$APP_ENV" >> .env.local
+RUN echo "DATABASE_URL=$DATABASE_URL" >> .env.local
+
+# Installation de Composer et des dépendances PHP
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer install --no-dev --optimize-autoloader
+
+EXPOSE 9000
+CMD ["php-fpm"]

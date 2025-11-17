@@ -1,0 +1,23 @@
+services:
+  # Service PHP pour exécuter Symfony
+  php:
+    image: ghcr.io/${GITHUB_REPOSITORY}/php-fpm:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  nginx:
+    image: ghcr.io/${GITHUB_REPOSITORY}/nginx:latest
+    build:
+     context: .
+     dockerfile: docker/Dockerfile-nginx
+    ports:
+        - "80:80"
+    deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure

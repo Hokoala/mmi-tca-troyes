@@ -9,7 +9,7 @@ on:
 
 defaults:
   run:
-    working-directory: ressources/s5/thomas-ca/projets/ci-cd-symfony
+    working-directory: ressources/s5/jeanmichel-le/projets/ci-cd-symfony
 
 jobs:
   ci-symfony:
@@ -41,3 +41,19 @@ jobs:
       - name: Audit de sécurité
         run: composer audit --format=json --no-interaction
         continue-on-error: true # Permettre au CI de continuer même si des vulnérabilités sont détectées
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Start Symfony server
+        run: |
+          php -S 127.0.0.1:8080 -t public &
+          sleep 3
+
+      - name: Run Cypress tests
+        run: npx cypress run
